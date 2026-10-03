@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#06120b"
+    >
+
+    <meta
+        name="description"
+        content="Welcome to NEXTGEN VENTURE LTD. — Construction, project management, finishing and building solutions."
+    >
+
+    <title>
+        Welcome | NEXTGEN VENTURE LTD.
+    </title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            width: 100%;
+            min-width: 0;
+            min-height: 100vh;
+            min-height: 100svh;
+
+            overflow: hidden;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #06120b;
+            color: #ffffff;
+        }
+
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        /* =====================================================
+           MAIN SCREEN
+        ===================================================== */
+
+        .welcome-screen {
+
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+
+            height: 100vh;
+            height: 100svh;
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            isolation: isolate;
+        }
+
+
+        /* =====================================================
+           BACKGROUND SLIDES
+        ===================================================== */
+
+        .background-container {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            z-index: -5;
+        }
+
+
+        .background-slide {
+
+            position: absolute;
+
+            inset: -2%;
+
+            width: 104%;
+            height: 104%;
+
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            opacity: 0;
+
+            transform: scale(1.05);
+
+            transition:
+                opacity 1.4s ease-in-out,
+                transform 7s ease-out;
+        }
+
+
+        .background-slide.active {
+
+            opacity: 1;
+
+            transform: scale(1);
+        }
+
+
+        /* =====================================================
+           BUILDING IMAGES
+        ===================================================== */
+
+        .slide-1 {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=90");
+        }
+
+
+        .slide-2 {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=90");
+        }
+
+
+        .slide-3 {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=90");
+        }
+
+
+        .slide-4 {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=90");
+        }
+
+
+        .slide-5 {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=90");
+        }
+
+
+        /* =====================================================
+           DARK OVERLAY
+        ===================================================== */
+
+        .dark-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -2;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(2, 10, 6, 0.48) 0%,
+                    rgba(2, 10, 6, 0.52) 45%,
+                    rgba(2, 10, 6, 0.78) 100%
+                );
+        }
+
+
+        .dark-overlay::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0, 0, 0, 0.03) 0%,
+                    rgba(0, 0, 0, 0.35) 100%
+                );
+        }
+
+
+        /* =====================================================
+           TOP GOLD / GREEN LINE
+        ===================================================== */
+
+        .top-line {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            z-index: 20;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent 0%,
+                    #d4af37 20%,
+                    #ffffff 50%,
+                    #08783f 80%,
+                    #d4af37 100%
+                );
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        .welcome-content {
+
+            position: relative;
+
+            z-index: 10;
+
+            width: min(
+                900px,
+                calc(100% - 32px)
+            );
+
+            max-height: 100%;
+
+            padding-top:
+                max(
+                    20px,
+                    env(safe-area-inset-top)
+                );
+
+            padding-bottom:
+                max(
+                    70px,
+                    env(safe-area-inset-bottom)
+                );
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo-container {
+
+            width:
+                clamp(
+                    170px,
+                    25vw,
+                    330px
+                );
+
+            max-width: 72vw;
+
+            margin-bottom:
+                clamp(
+                    16px,
+                    2.5vh,
+                    28px
+                );
+
+            animation:
+                logoAppear 1.3s ease forwards;
+        }
+
+
+        .logo-container img {
+
+            width: 100%;
+            height: auto;
+
+            max-height: 30vh;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 15px 35px
+                    rgba(0, 0, 0, 0.7)
+                );
+        }
+
+
+        /* =====================================================
+           WELCOME LABEL
+        ===================================================== */
+
+        .welcome-label {
+
+            color: #d4af37;
+
+            font-size:
+                clamp(
+                    9px,
+                    1.2vw,
+                    14px
+                );
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            letter-spacing:
+                clamp(
+                    2px,
+                    0.5vw,
+                    5px
+                );
+
+            text-transform: uppercase;
+
+            margin-bottom:
+                clamp(
+                    8px,
+                    1.5vh,
+                    14px
+                );
+
+            animation:
+                textAppear 1s ease 0.3s both;
+        }
+
+
+        /* =====================================================
+           MAIN TITLE
+        ===================================================== */
+
+        .welcome-title {
+
+            max-width: 100%;
+
+            color: #ffffff;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(
+                    30px,
+                    6vw,
+                    68px
+                );
+
+            line-height: 1.08;
+
+            font-weight: 500;
+
+            letter-spacing:
+                clamp(
+                    0px,
+                    0.1vw,
+                    1px
+                );
+
+            text-shadow:
+                0 5px 25px
+                rgba(0, 0, 0, 0.7);
+
+            margin-bottom:
+                clamp(
+                    10px,
+                    2vh,
+                    18px
+                );
+
+            animation:
+                textAppear 1s ease 0.5s both;
+        }
+
+
+        .welcome-title span {
+
+            color: #d4af37;
+        }
+
+
+        /* =====================================================
+           DESCRIPTION
+        ===================================================== */
+
+        .welcome-description {
+
+            width: 100%;
+            max-width: 650px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+                );
+
+            font-size:
+                clamp(
+                    13px,
+                    1.7vw,
+                    18px
+                );
+
+            line-height:
+                clamp(
+                    1.45,
+                    1.6vw,
+                    1.7
+                );
+
+            text-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 0.7);
+
+            margin-bottom:
+                clamp(
+                    18px,
+                    3vh,
+                    32px
+                );
+
+            animation:
+                textAppear 1s ease 0.7s both;
+        }
+
+
+        /* =====================================================
+           EXPLORE BUTTON
+        ===================================================== */
+
+        .explore-button {
+
+            position: relative;
+
+            width: auto;
+            max-width: 100%;
+
+            min-width: 190px;
+
+            min-height: 50px;
+
+            padding:
+                13px 25px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            border:
+                1px solid
+                rgba(
+                    212,
+                    175,
+                    55,
+                    0.85
+                );
+
+            border-radius: 3px;
+
+            background:
+                rgba(
+                    6,
+                    18,
+                    11,
+                    0.72
+                );
+
+            color: #ffffff;
+
+            font-size:
+                clamp(
+                    11px,
+                    1.3vw,
+                    13px
+                );
+
+            font-weight: 700;
+
+            letter-spacing:
+                clamp(
+                    1px,
+                    0.3vw,
+                    2px
+                );
+
+            text-transform: uppercase;
+
+            backdrop-filter:
+                blur(8px);
+
+            -webkit-backdrop-filter:
+                blur(8px);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+
+            animation:
+                textAppear 1s ease 0.9s both;
+        }
+
+
+        .explore-button::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.25
+                    ),
+                    transparent
+                );
+
+            transition:
+                left 0.6s ease;
+        }
+
+
+        .explore-button:hover::before {
+
+            left: 120%;
+        }
+
+
+        .explore-button:hover {
+
+            background: #d4af37;
+
+            color: #06120b;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(
+                    212,
+                    175,
+                    55,
+                    0.3
+                );
+        }
+
+
+        .arrow {
+
+            font-size: 19px;
+
+            line-height: 1;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .explore-button:hover .arrow {
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* =====================================================
+           SLIDE INDICATORS
+        ===================================================== */
+
+        .slide-indicators {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom:
+                max(
+                    16px,
+                    env(safe-area-inset-bottom)
+                );
+
+            transform:
+                translateX(-50%);
+
+            z-index: 15;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            width: max-content;
+        }
+
+
+        .indicator {
+
+            appearance: none;
+
+            width: 24px;
+            height: 3px;
+
+            padding: 0;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.4
+                );
+
+            cursor: pointer;
+
+            transition:
+                width 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .indicator.active {
+
+            width: 42px;
+
+            background: #d4af37;
+        }
+
+
+        /* =====================================================
+           COMPANY NAME BOTTOM RIGHT
+        ===================================================== */
+
+        .bottom-label {
+
+            position: absolute;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            z-index: 15;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes logoAppear {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(0.94);
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        @keyframes textAppear {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(18px);
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           IPAD / TABLET
+        ===================================================== */
+
+        @media (max-width: 1024px) {
+
+            .welcome-content {
+
+                width:
+                    min(
+                        800px,
+                        calc(100% - 48px)
+                    );
+            }
+
+
+            .logo-container {
+
+                width:
+                    clamp(
+                        190px,
+                        31vw,
+                        300px
+                    );
+            }
+
+
+            .welcome-description {
+
+                max-width: 600px;
+            }
+
+        }
+
+
+        /* =====================================================
+           TABLETS IN PORTRAIT
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .welcome-content {
+
+                width:
+                    calc(100% - 40px);
+
+                padding-top: 20px;
+            }
+
+
+            .logo-container {
+
+                width:
+                    clamp(
+                        180px,
+                        42vw,
+                        290px
+                    );
+
+                max-width: 65vw;
+            }
+
+
+            .welcome-label {
+
+                letter-spacing: 3px;
+            }
+
+
+            .welcome-description {
+
+                max-width: 560px;
+            }
+
+
+            .bottom-label {
+
+                display: none;
+            }
+
+        }
+
+
+        /* =====================================================
+           PHONES
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .welcome-content {
+
+                width:
+                    calc(100% - 28px);
+
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+
+            .logo-container {
+
+                width:
+                    clamp(
+                        160px,
+                        52vw,
+                        245px
+                    );
+
+                max-width: 62vw;
+            }
+
+
+            .welcome-label {
+
+                font-size: 10px;
+
+                letter-spacing: 2.5px;
+            }
+
+
+            .welcome-title {
+
+                font-size:
+                    clamp(
+                        29px,
+                        9.5vw,
+                        45px
+                    );
+            }
+
+
+            .welcome-description {
+
+                max-width: 390px;
+
+                font-size: 14px;
+
+                line-height: 1.55;
+            }
+
+
+            .explore-button {
+
+                width:
+                    min(
+                        100%,
+                        270px
+                    );
+
+                min-height: 52px;
+
+                padding:
+                    13px 18px;
+            }
+
+
+            .slide-indicators {
+
+                bottom: 14px;
+            }
+
+
+            .indicator {
+
+                width: 18px;
+
+                height: 2px;
+            }
+
+
+            .indicator.active {
+
+                width: 32px;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            .welcome-content {
+
+                width:
+                    calc(100% - 22px);
+            }
+
+
+            .logo-container {
+
+                width:
+                    min(
+                        190px,
+                        54vw
+                    );
+
+                margin-bottom: 13px;
+            }
+
+
+            .logo-container img {
+
+                max-height: 22vh;
+            }
+
+
+            .welcome-label {
+
+                font-size: 9px;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 7px;
+            }
+
+
+            .welcome-title {
+
+                font-size:
+                    clamp(
+                        26px,
+                        9vw,
+                        36px
+                    );
+
+                margin-bottom: 10px;
+            }
+
+
+            .welcome-description {
+
+                font-size: 12.5px;
+
+                line-height: 1.45;
+
+                max-width: 340px;
+
+                margin-bottom: 17px;
+            }
+
+
+            .explore-button {
+
+                min-width: 180px;
+
+                width: 75%;
+
+                max-width: 240px;
+
+                min-height: 48px;
+
+                padding:
+                    11px 15px;
+
+                font-size: 10px;
+            }
+
+
+            .arrow {
+
+                font-size: 17px;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+           320px / 300px RANGE
+        ===================================================== */
+
+        @media (max-width: 340px) {
+
+            .welcome-content {
+
+                width:
+                    calc(100% - 16px);
+            }
+
+
+            .logo-container {
+
+                width: 150px;
+
+                max-width: 55vw;
+
+                margin-bottom: 10px;
+            }
+
+
+            .logo-container img {
+
+                max-height: 18vh;
+            }
+
+
+            .welcome-label {
+
+                font-size: 8px;
+
+                letter-spacing: 1.5px;
+            }
+
+
+            .welcome-title {
+
+                font-size: 25px;
+
+                line-height: 1.05;
+            }
+
+
+            .welcome-description {
+
+                font-size: 11.5px;
+
+                line-height: 1.35;
+
+                margin-bottom: 14px;
+            }
+
+
+            .explore-button {
+
+                width: 190px;
+
+                min-width: 0;
+
+                min-height: 44px;
+
+                font-size: 9px;
+
+                letter-spacing: 1.3px;
+
+                padding:
+                    10px 12px;
+            }
+
+
+            .slide-indicators {
+
+                bottom: 10px;
+
+                gap: 5px;
+            }
+
+
+            .indicator {
+
+                width: 15px;
+            }
+
+
+            .indicator.active {
+
+                width: 27px;
+            }
+
+        }
+
+
+        /* =====================================================
+           LANDSCAPE PHONES
+        ===================================================== */
+
+        @media (
+            max-height: 550px
+        ) and (
+            orientation: landscape
+        ) {
+
+            .welcome-content {
+
+                justify-content: center;
+
+                padding-top: 5px;
+
+                padding-bottom: 35px;
+            }
+
+
+            .logo-container {
+
+                width:
+                    clamp(
+                        100px,
+                        18vh,
+                        165px
+                    );
+
+                margin-bottom: 7px;
+            }
+
+
+            .logo-container img {
+
+                max-height: 22vh;
+            }
+
+
+            .welcome-label {
+
+                font-size: 8px;
+
+                margin-bottom: 4px;
+            }
+
+
+            .welcome-title {
+
+                font-size:
+                    clamp(
+                        22px,
+                        6vh,
+                        35px
+                    );
+
+                margin-bottom: 5px;
+            }
+
+
+            .welcome-description {
+
+                font-size: 11px;
+
+                line-height: 1.3;
+
+                max-width: 600px;
+
+                margin-bottom: 9px;
+            }
+
+
+            .explore-button {
+
+                min-height: 38px;
+
+                width: 190px;
+
+                padding:
+                    8px 15px;
+
+                font-size: 9px;
+            }
+
+
+            .slide-indicators {
+
+                bottom: 6px;
+            }
+
+
+            .bottom-label {
+
+                display: none;
+            }
+
+        }
+
+
+        /* =====================================================
+           IPAD LANDSCAPE / SMALL LAPTOPS
+        ===================================================== */
+
+        @media (
+            min-width: 769px
+        ) and (
+            max-height: 700px
+        ) {
+
+            .logo-container {
+
+                width:
+                    clamp(
+                        150px,
+                        24vh,
+                        250px
+                    );
+
+                margin-bottom: 12px;
+            }
+
+
+            .logo-container img {
+
+                max-height: 27vh;
+            }
+
+
+            .welcome-title {
+
+                font-size:
+                    clamp(
+                        30px,
+                        5vw,
+                        52px
+                    );
+
+                margin-bottom: 10px;
+            }
+
+
+            .welcome-description {
+
+                font-size: 14px;
+
+                margin-bottom: 17px;
+            }
+
+
+            .explore-button {
+
+                min-height: 46px;
+            }
+
+        }
+
+
+        /* =====================================================
+           LARGE SCREENS
+        ===================================================== */
+
+        @media (min-width: 1600px) {
+
+            .welcome-content {
+
+                width: 1000px;
+            }
+
+
+            .logo-container {
+
+                width: 360px;
+            }
+
+
+            .welcome-title {
+
+                font-size: 72px;
+            }
+
+
+            .welcome-description {
+
+                font-size: 19px;
+
+                max-width: 720px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+
+
+            .background-slide {
+
+                transition: opacity 0.3s ease;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="welcome-screen">
+
+
+        <!-- =================================================
+             BUILDING BACKGROUNDS
+        ================================================== -->
+
+        <div class="background-container">
+
+            <div
+                class="background-slide slide-1 active"
+            ></div>
+
+            <div
+                class="background-slide slide-2"
+            ></div>
+
+            <div
+                class="background-slide slide-3"
+            ></div>
+
+            <div
+                class="background-slide slide-4"
+            ></div>
+
+            <div
+                class="background-slide slide-5"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             DARK OVERLAY
+        ================================================== -->
+
+        <div class="dark-overlay"></div>
+
+
+        <!-- =================================================
+             TOP LINE
+        ================================================== -->
+
+        <div class="top-line"></div>
+
+
+        <!-- =================================================
+             CENTER CONTENT
+        ================================================== -->
+
+        <section class="welcome-content">
+
+
+            <!-- LOGO -->
+
+            <div class="logo-container">
+
+                <img
+                    src="./IMG/logo.png"
+                    alt="NEXTGEN VENTURE LTD. logo"
+                >
+
+            </div>
+
+
+            <!-- WELCOME -->
+
+            <p class="welcome-label">
+                Welcome to
+            </p>
+
+
+            <!-- TITLE -->
+
+            <h1 class="welcome-title">
+
+                Building
+                <span>Tomorrow.</span>
+
+            </h1>
+
+
+            <!-- DESCRIPTION -->
+
+            <p class="welcome-description">
+
+                Construction. Project Management.
+                Finishing. Building Materials.
+                Professional solutions from concept
+                to completion.
+
+            </p>
+
+
+            <!-- BUTTON -->
+
+            <a
+                href="./home.html"
+                class="explore-button"
+                id="exploreButton"
+            >
+
+                <span>
+                    Explore More
+                </span>
+
+                <span
+                    class="arrow"
+                    aria-hidden="true"
+                >
+                    →
+                </span>
+
+            </a>
+
+
+        </section>
+
+
+        <!-- =================================================
+             SLIDE INDICATORS
+        ================================================== -->
+
+        <div
+            class="slide-indicators"
+            id="slideIndicators"
+            aria-label="Building slideshow controls"
+        >
+
+            <button
+                type="button"
+                class="indicator active"
+                data-slide="0"
+                aria-label="Show building 1"
+            ></button>
+
+            <button
+                type="button"
+                class="indicator"
+                data-slide="1"
+                aria-label="Show building 2"
+            ></button>
+
+            <button
+                type="button"
+                class="indicator"
+                data-slide="2"
+                aria-label="Show building 3"
+            ></button>
+
+            <button
+                type="button"
+                class="indicator"
+                data-slide="3"
+                aria-label="Show building 4"
+            ></button>
+
+            <button
+                type="button"
+                class="indicator"
+                data-slide="4"
+                aria-label="Show building 5"
+            ></button>
+
+        </div>
+
+
+        <!-- COMPANY NAME -->
+
+        <div class="bottom-label">
+
+            NEXTGEN VENTURE LTD.
+
+        </div>
+
+
+    </main>
+
+
+    <script>
+
+        /* =====================================================
+           SELECT ELEMENTS
+        ===================================================== */
+
+        const slides =
+            document.querySelectorAll(
+                ".background-slide"
+            );
+
+        const indicators =
+            document.querySelectorAll(
+                ".indicator"
+            );
+
+        const exploreButton =
+            document.getElementById(
+                "exploreButton"
+            );
+
+
+        /* =====================================================
+           SLIDESHOW VARIABLES
+        ===================================================== */
+
+        let currentSlide = 0;
+
+        let slideTimer = null;
+
+        const slideDuration = 6000;
+
+
+        /* =====================================================
+           SHOW SLIDE
+        ===================================================== */
+
+        function showSlide(index) {
+
+            slides.forEach(
+                function(slide) {
+
+                    slide.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            indicators.forEach(
+                function(indicator) {
+
+                    indicator.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            if (!slides[index]) {
+                return;
+            }
+
+
+            slides[index].classList.add(
+                "active"
+            );
+
+
+            if (indicators[index]) {
+
+                indicators[index]
+                    .classList
+                    .add("active");
+
+            }
+
+
+            currentSlide = index;
+        }
+
+
+        /* =====================================================
+           NEXT SLIDE
+        ===================================================== */
+
+        function nextSlide() {
+
+            let nextSlide =
+                currentSlide + 1;
+
+
+            if (
+                nextSlide >=
+                slides.length
+            ) {
+
+                nextSlide = 0;
+
+            }
+
+
+            showSlide(
+                nextSlide
+            );
+
+        }
+
+
+        /* =====================================================
+           PREVIOUS SLIDE
+        ===================================================== */
+
+        function previousSlide() {
+
+            let previous =
+                currentSlide - 1;
+
+
+            if (previous < 0) {
+
+                previous =
+                    slides.length - 1;
+
+            }
+
+
+            showSlide(
+                previous
+            );
+
+        }
+
+
+        /* =====================================================
+           START SLIDESHOW
+        ===================================================== */
+
+        function startSlideshow() {
+
+            clearInterval(
+                slideTimer
+            );
+
+
+            slideTimer =
+                setInterval(
+                    nextSlide,
+                    slideDuration
+                );
+
+        }
+
+
+        /* =====================================================
+           RESET SLIDESHOW
+        ===================================================== */
+
+        function resetSlideshow() {
+
+            clearInterval(
+                slideTimer
+            );
+
+            startSlideshow();
+
+        }
+
+
+        /* =====================================================
+           INDICATOR CONTROLS
+        ===================================================== */
+
+        indicators.forEach(
+            function(indicator) {
+
+                indicator.addEventListener(
+                    "click",
+                    function() {
+
+                        const slideNumber =
+                            Number(
+                                indicator.dataset.slide
+                            );
+
+
+                        showSlide(
+                            slideNumber
+                        );
+
+
+                        resetSlideshow();
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           KEYBOARD CONTROLS
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key ===
+                    "ArrowRight"
+                ) {
+
+                    nextSlide();
+
+                    resetSlideshow();
+
+                }
+
+
+                if (
+                    event.key ===
+                    "ArrowLeft"
+                ) {
+
+                    previousSlide();
+
+                    resetSlideshow();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           PAUSE WHEN TAB IS HIDDEN
+        ===================================================== */
+
+        document.addEventListener(
+            "visibilitychange",
+            function() {
+
+                if (
+                    document.hidden
+                ) {
+
+                    clearInterval(
+                        slideTimer
+                    );
+
+                } else {
+
+                    startSlideshow();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        showSlide(0);
+
+        startSlideshow();
+
+
+        /* =====================================================
+           EXPLORE BUTTON
+        ===================================================== */
+
+        exploreButton.addEventListener(
+            "click",
+            function() {
+
+                /*
+                    The link itself handles navigation
+                    to home.html.
+                */
+
+                exploreButton.style.opacity =
+                    "0.85";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+

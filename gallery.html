@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXTGEN VENTURE LTD | Interior & Exterior Finishing</title>
+
+    <meta name="description"
+          content="NEXTGEN VENTURE LTD - Epoxy floors, POP designs, marble towel paint, Gravitex paint, screeding, painting, Increte stamp floors and project management.">
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #171717;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --gold: #d6a928;
+            --gold-light: #f3d477;
+            --dark: #111111;
+            --dark-2: #191919;
+            --white: #ffffff;
+            --gray: #777777;
+            --light: #f6f6f6;
+            --border: #e8e8e8;
+            --shadow: 0 15px 40px rgba(0,0,0,0.10);
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 78px;
+            z-index: 9999;
+            background: rgba(17,17,17,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar {
+            max-width: 1400px;
+            height: 100%;
+            margin: auto;
+            padding: 0 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+
+        /* =========================================================
+           LOGO
+        ========================================================= */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 220px;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            background: #222;
+        }
+
+        .logo-text {
+            line-height: 1.05;
+        }
+
+        .logo-text h2 {
+            color: white;
+            font-size: 17px;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #eeeeee;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           QUOTE BUTTON
+        ========================================================= */
+
+        .quote-button {
+            background: linear-gradient(135deg, var(--gold), #a77c0b);
+            color: #111 !important;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 800 !important;
+            white-space: nowrap;
+            transition: 0.3s ease;
+        }
+
+        .quote-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(214,169,40,0.3);
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 2px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.88),
+                    rgba(0,0,0,0.58),
+                    rgba(0,0,0,0.28)
+                ),
+                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85")
+                center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            margin: auto;
+            padding: 120px 35px 80px;
+        }
+
+        .hero-content small {
+            display: inline-block;
+            color: var(--gold-light);
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: clamp(42px, 6vw, 82px);
+            max-width: 900px;
+            line-height: 0.98;
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            max-width: 650px;
+            color: #e3e3e3;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-weight: 800;
+            transition: 0.3s ease;
+        }
+
+        .hero-btn.primary {
+            background: var(--gold);
+            color: #111;
+        }
+
+        .hero-btn.secondary {
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        .section {
+            padding: 90px 35px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px;
+        }
+
+        .section-heading span {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 50px);
+            margin: 12px 0 16px;
+            line-height: 1.1;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           SERVICES INTRO
+        ========================================================= */
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-image {
+            height: 520px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .intro-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .intro-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .intro-content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .intro-content h2 span {
+            color: var(--gold);
+        }
+
+        .intro-content p {
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            gap: 13px;
+            margin-top: 25px;
+        }
+
+        .check-list li {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: #111;
+            font-weight: 900;
+        }
+
+
+        /* =========================================================
+           PROJECT GRID
+        ========================================================= */
+
+        .projects {
+            background: #111;
+        }
+
+        .projects .section-heading h2 {
+            color: white;
+        }
+
+        .projects .section-heading p {
+            color: #aaa;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            position: relative;
+            height: 330px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #222;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s ease;
+        }
+
+        .project-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.9),
+                    rgba(0,0,0,0.05) 70%
+                );
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            z-index: 2;
+        }
+
+        .project-number {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .project-info h3 {
+            color: white;
+            font-size: 20px;
+            margin-top: 7px;
+        }
+
+        .project-info p {
+            color: #ddd;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+            background: var(--gold);
+            padding: 35px;
+        }
+
+        .stats-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 35px;
+        }
+
+        .stat p {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            margin: 0;
+            padding: 90px 35px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.88),
+                    rgba(0,0,0,0.72)
+                ),
+                url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+            font-size: clamp(32px, 5vw, 60px);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #ddd;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 28px;
+            background: var(--gold);
+            color: #111;
+            font-weight: 900;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
+           VERY SLIM FOOTER
+        ========================================================= */
+
+        footer {
+            background: #0a0a0a;
+            color: #aaa;
+            padding: 13px 25px;
+            font-size: 11px;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-inner strong {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .navbar {
+                padding: 0 25px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .intro-grid {
+                gap: 30px;
+            }
+
+        }
+
+
+        /* =========================================================
+           IPAD / TABLET
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            header {
+                height: 70px;
+            }
+
+            .navbar {
+                padding: 0 18px;
+            }
+
+            .logo {
+                min-width: auto;
+            }
+
+            .logo-text h2 {
+                font-size: 15px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #111;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 20px 20px;
+
+                transform: translateY(-150%);
+                opacity: 0;
+                pointer-events: none;
+                transition: 0.4s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 10px;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .quote-button {
+                text-align: center;
+                margin-top: 8px;
+            }
+
+            .hero-content {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image {
+                height: 400px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================================================
+           PHONES / IPHONE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            .logo-image {
+                width: 42px;
+                height: 42px;
+            }
+
+            .logo-text h2 {
+                font-size: 13px;
+            }
+
+            .logo-text span {
+                font-size: 7px;
+            }
+
+            .hero {
+                min-height: 760px;
+            }
+
+            .hero-content {
+                padding: 110px 20px 60px;
+            }
+
+            .hero-content small {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section {
+                padding: 65px 18px;
+            }
+
+            .section-heading {
+                margin-bottom: 35px;
+            }
+
+            .intro-content h2 {
+                font-size: 32px;
+            }
+
+            .intro-image {
+                height: 320px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .project-card {
+                height: 350px;
+            }
+
+            .stats {
+                padding: 30px 18px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px 10px;
+            }
+
+            .stat h3 {
+                font-size: 28px;
+            }
+
+            .stat p {
+                font-size: 9px;
+            }
+
+            .cta {
+                padding: 70px 20px;
+            }
+
+            footer {
+                padding: 12px 15px;
+            }
+
+            .footer-inner {
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .footer-links {
+                display: none;
+            }
+
+        }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 380px) {
+
+            .logo-text h2 {
+                font-size: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 39px;
+            }
+
+            .project-card {
+                height: 300px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="./home.html" class="logo">
+
+                <!--
+                    Replace this image with your actual company logo:
+                    images/nextgen-logo.png
+                -->
+
+                <img
+                    class="logo-image"
+                    src="./IMG/logo.png"
+                    alt="NEXTGEN VENTURE LTD Logo"
+                >
+
+                <div class="logo-text">
+                    <h2>NEXTGEN VENTURE</h2>
+                    <span>Limited</span>
+                </div>
+
+            </a>
+
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="./home.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="./about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="#">Gallery</a>
+                </li>
+
+                <li>
+                    <a href="./contact.html" class="quote-button">
+                        Get a Quote
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <small>Interior • Exterior • Construction Finishing</small>
+
+                <h1>
+                    We Create
+                    <span>Spaces</span>
+                    That Inspire.
+                </h1>
+
+                <p>
+                    NEXTGEN VENTURE LTD specializes in modern finishing,
+                    decorative surfaces, architectural designs and professional
+                    project management. We transform ordinary spaces into
+                    remarkable environments.
+                </p>
+
+                <div class="hero-buttons">
+
+                   
+
+                    <a href="./contact.html" class="hero-btn secondary">
+                        Get a Quote
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             INTRODUCTION
+        ====================================================== -->
+
+        <section class="section reveal">
+
+            <div class="container">
+
+                <div class="intro-grid">
+
+                    <div class="intro-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
+                            alt="Modern interior finishing"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="intro-content">
+
+                        <h2>
+                            Building Beautiful
+                            <span>Experiences.</span>
+                        </h2>
+
+                        <p>
+                            At NEXTGEN VENTURE LTD, we combine creativity,
+                            quality materials and professional workmanship
+                            to deliver outstanding interior and exterior
+                            finishing solutions.
+                        </p>
+
+                        <p>
+                            From luxury epoxy floors and POP ceilings to
+                            decorative painting, screeding, stamped concrete
+                            and complete project management, our team is
+                            committed to delivering exceptional results.
+                        </p>
+
+
+                        <ul class="check-list">
+
+                            <li>Professional workmanship</li>
+
+                            <li>Modern finishing techniques</li>
+
+                            <li>Quality materials</li>
+
+                            <li>Creative architectural solutions</li>
+
+                            <li>Reliable project management</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROJECTS / 25 PICTURES
+        ====================================================== -->
+
+        <section class="section projects">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span>What We Do</span>
+
+                    <h2>
+                        Our Services & Projects
+                    </h2>
+
+                    <p>
+                        Explore some of the finishing and construction
+                        solutions delivered by NEXTGEN VENTURE LTD.
+                    </p>
+
+                </div>
+
+
+                <div class="project-grid">
+
+
+                    <!-- 01 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=900&q=80"
+                            alt="Epoxy Floor Design"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">01 / SERVICE</span>
+
+                            <h3>Epoxy Floor Design</h3>
+
+                            <p>
+                                Modern, durable and luxurious epoxy flooring.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 02 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80"
+                            alt="POP Ceiling Design"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">02 / SERVICE</span>
+
+                            <h3>POP Design</h3>
+
+                            <p>
+                                Modern ceiling and wall POP designs.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 03 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+                            alt="Marble Towel Paint"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">03 / SERVICE</span>
+
+                            <h3>Marble Towel Paint</h3>
+
+                            <p>
+                                Decorative marble-effect wall finishes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 04 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80"
+                            alt="Gravitex Paint"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">04 / SERVICE</span>
+
+                            <h3>Gravitex Paint</h3>
+
+                            <p>
+                                Textured decorative exterior finishes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 05 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="./IMG/picture 17.jpeg"
+                            alt="Wall Screeding"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">05 / SERVICE</span>
+
+                            <h3>Screeding</h3>
+
+                            <p>
+                                Smooth and professional surface preparation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 06 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=80"
+                            alt="Professional Painting"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">06 / SERVICE</span>
+
+                            <h3>Painting</h3>
+
+                            <p>
+                                Interior and exterior professional painting.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 07 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="./IMG/picture 15.jpeg"
+                            alt="Increte Stamp Floor"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">07 / SERVICE</span>
+
+                            <h3>Increte Stamp Floor</h3>
+
+                            <p>
+                                Decorative stamped concrete surfaces.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 08 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+                            alt="Project Management"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">08 / SERVICE</span>
+
+                            <h3>Project Management</h3>
+
+                            <p>
+                                Complete project coordination and supervision.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 09 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=80"
+                            alt="Luxury Interior"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">09 / PROJECT</span>
+
+                            <h3>Luxury Interior</h3>
+
+                            <p>
+                                Premium modern interior finishing.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 10 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600566753051-f0b89df2dd90?auto=format&fit=crop&w=900&q=80"
+                            alt="Modern Wall Finish"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">10 / PROJECT</span>
+
+                            <h3>Modern Wall Finish</h3>
+
+                            <p>
+                                Contemporary decorative wall solutions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 11 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80"
+                            alt="Exterior Finishing"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">11 / PROJECT</span>
+
+                            <h3>Exterior Finishing</h3>
+
+                            <p>
+                                Beautiful and durable exterior finishes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 12 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+                            alt="Decorative Interior"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">12 / PROJECT</span>
+
+                            <h3>Decorative Interior</h3>
+
+                            <p>
+                                Elegant decorative interior surfaces.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 13 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=80"
+                            alt="Floor Finishing"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">13 / PROJECT</span>
+
+                            <h3>Floor Finishing</h3>
+
+                            <p>
+                                Premium flooring and finishing solutions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 14 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80"
+                            alt="Ceiling Architecture"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">14 / PROJECT</span>
+
+                            <h3>Ceiling Architecture</h3>
+
+                            <p>
+                                Creative architectural ceiling designs.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 15 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=900&q=80"
+                            alt="Residential Finishing"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">15 / PROJECT</span>
+
+                            <h3>Residential Finishing</h3>
+
+                            <p>
+                                Complete residential finishing services.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 16 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+                            alt="Modern Building"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">16 / PROJECT</span>
+
+                            <h3>Modern Building</h3>
+
+                            <p>
+                                Contemporary construction finishing.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 17 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+                            alt="Luxury Wall Design"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">17 / PROJECT</span>
+
+                            <h3>Luxury Wall Design</h3>
+
+                            <p>
+                                Premium wall decoration and finishing.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 18 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80"
+                            alt="Contemporary Interior"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">18 / PROJECT</span>
+
+                            <h3>Contemporary Interior</h3>
+
+                            <p>
+                                Modern spaces designed for comfort.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 19 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80"
+                            alt="Commercial Finishing"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">19 / PROJECT</span>
+
+                            <h3>Commercial Finishing</h3>
+
+                            <p>
+                                Professional finishing for business spaces.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 20 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=80"
+                            alt="Premium Decoration"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">20 / PROJECT</span>
+
+                            <h3>Premium Decoration</h3>
+
+                            <p>
+                                Stylish decorative finishing.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 21 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=900&q=80"
+                            alt="Outdoor Flooring"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">21 / PROJECT</span>
+
+                            <h3>Outdoor Flooring</h3>
+
+                            <p>
+                                Durable outdoor flooring solutions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 22 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80"
+                            alt="Interior Renovation"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">22 / PROJECT</span>
+
+                            <h3>Interior Renovation</h3>
+
+                            <p>
+                                Complete interior transformation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 23 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80"
+                            alt="Building Painting"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">23 / PROJECT</span>
+
+                            <h3>Building Painting</h3>
+
+                            <p>
+                                Exterior and interior building painting.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 24 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80"
+                            alt="Architectural Finishing"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">24 / PROJECT</span>
+
+                            <h3>Architectural Finishing</h3>
+
+                            <p>
+                                Detailed finishing for modern architecture.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 25 -->
+
+                    <div class="project-card reveal">
+
+                        <img
+                            src="./IMG/picture 14.jpeg"
+                            alt="Complete Project Management"
+                            loading="lazy"
+                        >
+
+                        <div class="project-info">
+
+                            <span class="project-number">25 / SERVICE</span>
+
+                            <h3>Complete Project Management</h3>
+
+                            <p>
+                                From planning to final delivery.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             STATS
+        ====================================================== -->
+
+       
+
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section class="cta">
+
+            <h2>
+                Let's Build Something Beautiful.
+            </h2>
+
+            <p>
+                Have a building, home, office or commercial project?
+                Talk to NEXTGEN VENTURE LTD about your finishing,
+                decoration or project management needs.
+            </p>
+
+            <a href="./contact.html" class="cta-button">
+                GET A QUOTE
+            </a>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         SLIM FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+                © <span id="year"></span>
+                <strong>NEXTGEN VENTURE LTD</strong>
+                — All Rights Reserved.
+            </div>
+
+           
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* =====================================================
+           CLOSE MOBILE MENU AFTER CLICK
+        ====================================================== */
+
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealOnScroll = function() {
+
+            revealElements.forEach(function(element) {
+
+                const windowHeight = window.innerHeight;
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 80) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        revealOnScroll();
+
+
+        /* =====================================================
+           COUNTER ANIMATION
+        ====================================================== */
+
+        const counters =
+            document.querySelectorAll(".counter");
+
+        let countersStarted = false;
+
+        function startCounters() {
+
+            if (countersStarted) return;
+
+            const statsSection =
+                document.querySelector(".stats");
+
+            const sectionTop =
+                statsSection.getBoundingClientRect().top;
+
+            if (sectionTop < window.innerHeight - 100) {
+
+                countersStarted = true;
+
+                counters.forEach(function(counter) {
+
+                    const target =
+                        Number(counter.dataset.target);
+
+                    let current = 0;
+
+                    const increment =
+                        Math.max(1, Math.ceil(target / 60));
+
+                    const timer = setInterval(function() {
+
+                        current += increment;
+
+                        if (current >= target) {
+
+                            current = target;
+
+                            clearInterval(timer);
+
+                        }
+
+                        counter.textContent = current + "+";
+
+                    }, 25);
+
+                });
+
+            }
+
+        }
+
+        window.addEventListener("scroll", startCounters);
+
+        startCounters();
+
+
+        /* =====================================================
+           FOOTER YEAR
+        ====================================================== */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* =====================================================
+           IMAGE ERROR FALLBACK
+        ====================================================== */
+
+        document.querySelectorAll("img").forEach(function(img) {
+
+            img.addEventListener("error", function() {
+
+                this.style.background =
+                    "linear-gradient(135deg,#222,#111)";
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

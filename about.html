@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXTGEN VENTURE LTD | Premium Floor & Wall Finishing</title>
+<style>
+  /* ============ RESET & VARIABLES ============ */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  :root{
+    --primary:#0e2a47;        /* deep navy */
+    --accent:#f5a623;         /* construction amber */
+    --accent2:#e07b00;
+    --light:#f7f9fc;
+    --dark:#1a1a2e;
+    --grey:#6b7a8d;
+    --white:#ffffff;
+    --shadow:0 10px 30px rgba(14,42,71,.12);
+    --radius:14px;
+  }
+  html{ scroll-behavior:smooth; scroll-padding-top:80px; }
+  body{ color:var(--dark); background:var(--white); overflow-x:hidden; }
+  img{ max-width:100%; display:block; }
+  a{ text-decoration:none; color:inherit; }
+  section{ padding:90px 6%; }
+  .section-tag{
+    display:inline-block; background:rgba(245,166,35,.15); color:var(--accent2);
+    padding:6px 18px; border-radius:50px; font-size:.8rem; font-weight:700;
+    letter-spacing:2px; text-transform:uppercase; margin-bottom:14px;
+  }
+  .section-title{ font-size:clamp(1.8rem, 4vw, 2.6rem); color:var(--primary); margin-bottom:14px; }
+  .section-sub{ color:var(--grey); max-width:640px; margin:0 auto 50px; line-height:1.7; }
+  .center{ text-align:center; }
+
+  /* ============ HEADER ============ */
+  header{
+    position:fixed; top:0; left:0; width:100%; z-index:1000;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 5%; background:rgba(255,255,255,.92); backdrop-filter:blur(12px);
+    box-shadow:0 2px 18px rgba(0,0,0,.08); transition:.3s;
+  }
+  header.scrolled{ padding:8px 5%; background:rgba(14,42,71,.97); }
+  header.scrolled .nav-links a, header.scrolled .logo-text{ color:var(--white); }
+  header.scrolled .logo-text span{ color:var(--accent); }
+  .logo{ display:flex; align-items:center; gap:10px; }
+  .logo svg{ width:46px; height:46px; }
+  .logo-text{ font-weight:800; font-size:1.15rem; color:var(--primary); line-height:1.1; }
+  .logo-text span{ color:var(--accent); display:block; font-size:.68rem; letter-spacing:4px; font-weight:600; }
+  nav ul{ display:flex; list-style:none; gap:6px; align-items:center; }
+  .nav-links a{
+    padding:9px 15px; border-radius:8px; font-weight:600; font-size:.92rem;
+    color:var(--primary); transition:.25s;
+  }
+  .nav-links a:hover, .nav-links a.active{ background:var(--accent); color:var(--primary); }
+  .cta-btn{
+    background:var(--accent); color:var(--primary); padding:11px 24px; border-radius:50px;
+    font-weight:700; font-size:.9rem; transition:.3s; box-shadow:0 4px 14px rgba(245,166,35,.4);
+  }
+  .cta-btn:hover{ background:var(--accent2); color:#fff; transform:translateY(-2px); }
+  .hamburger{ display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; z-index:1100; }
+  .hamburger span{ width:28px; height:3px; background:var(--primary); border-radius:3px; transition:.3s; }
+  header.scrolled .hamburger span{ background:#fff; }
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height:100vh; display:flex; align-items:center; position:relative;
+    background:linear-gradient(115deg, rgba(14,42,71,.94) 35%, rgba(14,42,71,.72)),
+               url('./IMG/picture\ 5.jpeg') center/cover no-repeat;
+    color:#fff; padding:130px 6% 80px;
+  }
+  .hero-content{ max-width:720px; animation:fadeUp 1s ease both; }
+  .hero h1{ font-size:clamp(2.2rem, 5.5vw, 4rem); line-height:1.15; margin:18px 0; }
+  .hero h1 .hl{ color:var(--accent); }
+  .hero p{ font-size:clamp(.95rem, 1.6vw, 1.15rem); line-height:1.8; color:#d7e3f0; margin-bottom:34px; }
+  .hero-badges{ display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+  .hero-badges div{
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:10px 18px; border-radius:50px; font-size:.85rem; backdrop-filter:blur(6px);
+  }
+  .btn-group{ display:flex; flex-wrap:wrap; gap:16px; }
+  .btn-primary{ background:var(--accent); color:var(--primary); padding:15px 34px; border-radius:50px; font-weight:700; transition:.3s; display:inline-block; }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 12px 25px rgba(245,166,35,.45); }
+  .btn-outline{ border:2px solid #fff; color:#fff; padding:15px 34px; border-radius:50px; font-weight:700; transition:.3s; display:inline-block; }
+  .btn-outline:hover{ background:#fff; color:var(--primary); }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ============ STATS BAR ============ */
+  .stats{ background:var(--accent); padding:40px 6%; display:flex; justify-content:center; gap:60px; flex-wrap:wrap; }
+  .stat{ text-align:center; color:var(--primary); }
+  .stat h2{ font-size:2.4rem; }
+  .stat p{ font-weight:600; font-size:.9rem; }
+
+  /* ============ ABOUT ============ */
+  .about{ background:var(--light); }
+  .about-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; max-width:1200px; margin:0 auto; }
+  .about-imgs{ position:relative; }
+  .about-imgs .main-img{ border-radius:var(--radius); box-shadow:var(--shadow); }
+  .about-imgs .float-img{
+    position:absolute; bottom:-35px; right:-25px; width:46%; border-radius:var(--radius);
+    border:6px solid var(--white); box-shadow:var(--shadow);
+  }
+  .about-content h2{ margin-bottom:18px; }
+  .about-content p{ color:var(--grey); line-height:1.85; margin-bottom:18px; }
+  .about-list{ list-style:none; margin:22px 0 30px; }
+  .about-list li{ padding:9px 0 9px 34px; position:relative; font-weight:600; color:var(--primary); }
+  .about-list li::before{
+    content:"✔"; position:absolute; left:0; top:8px; background:var(--accent);
+    width:24px; height:24px; border-radius:50%; display:grid; place-items:center;
+    font-size:.75rem; color:var(--primary);
+  }
+
+  /* ============ SERVICES ============ */
+  .services-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr)); gap:28px; max-width:1250px; margin:0 auto; }
+  .service-card{
+    background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+    transition:.35s; position:relative; border:1px solid #eef2f7;
+  }
+  .service-card:hover{ transform:translateY(-10px); box-shadow:0 22px 45px rgba(14,42,71,.18); }
+  .service-card .img-box{ height:200px; overflow:hidden; }
+  .service-card img{ width:100%; height:100%; object-fit:cover; transition:.6s; }
+  .service-card:hover img{ transform:scale(1.1); }
+  .service-body{ padding:24px; }
+  .service-body h3{ color:var(--primary); margin-bottom:10px; font-size:1.12rem; }
+  .service-body p{ color:var(--grey); font-size:.9rem; line-height:1.65; }
+  .service-num{
+    position:absolute; top:14px; left:14px; background:var(--accent); color:var(--primary);
+    width:38px; height:38px; border-radius:10px; display:grid; place-items:center; font-weight:800;
+  }
+
+  /* ============ PROJECTS ============ */
+  .projects{ background:var(--primary); color:#fff; }
+  .projects .section-title{ color:#fff; }
+  .projects .section-sub{ color:#b9c8d9; }
+  .proj-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:26px; max-width:1250px; margin:0 auto; }
+  .proj-card{ position:relative; border-radius:var(--radius); overflow:hidden; height:340px; cursor:pointer; }
+  .proj-card img{ width:100%; height:100%; object-fit:cover; transition:.6s; }
+  .proj-card:hover img{ transform:scale(1.08); }
+  .proj-overlay{
+    position:absolute; inset:0; background:linear-gradient(to top, rgba(14,42,71,.95) 15%, transparent 65%);
+    display:flex; flex-direction:column; justify-content:flex-end; padding:26px; opacity:.92; transition:.4s;
+  }
+  .proj-card:hover .proj-overlay{ opacity:1; background:linear-gradient(to top, rgba(245,166,35,.92) 20%, rgba(14,42,71,.35)); }
+  .proj-overlay small{ color:var(--accent); font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+  .proj-overlay h3{ font-size:1.25rem; margin-top:6px; }
+
+  /* ============ PROCESS ============ */
+  .process-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:26px; max-width:1200px; margin:0 auto; counter-reset:step; }
+  .process-step{ text-align:center; padding:38px 22px; background:var(--light); border-radius:var(--radius); position:relative; transition:.3s; }
+  .process-step:hover{ background:var(--primary); color:#fff; transform:translateY(-8px); }
+  .process-step .icon{ font-size:2.4rem; margin-bottom:16px; }
+  .process-step h3{ margin-bottom:10px; font-size:1.05rem; }
+  .process-step p{ font-size:.88rem; color:var(--grey); line-height:1.6; }
+  .process-step:hover p{ color:#c9d6e4; }
+  .process-step::before{
+    counter-increment:step; content:"0" counter(step);
+    position:absolute; top:-18px; left:50%; transform:translateX(-50%);
+    background:var(--accent); color:var(--primary); width:38px; height:38px; border-radius:50%;
+    display:grid; place-items:center; font-weight:800; box-shadow:0 6px 14px rgba(245,166,35,.5);
+  }
+
+  /* ============ GALLERY ============ */
+  .gallery{ background:var(--light); }
+  .filter-btns{ display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-bottom:40px; }
+  .filter-btns button{
+    padding:10px 24px; border:2px solid var(--primary); background:transparent; color:var(--primary);
+    border-radius:50px; font-weight:700; cursor:pointer; transition:.3s; font-size:.88rem;
+  }
+  .filter-btns button.active, .filter-btns button:hover{ background:var(--primary); color:#fff; }
+  .gallery-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:16px; max-width:1250px; margin:0 auto; }
+  .g-item{ border-radius:12px; overflow:hidden; height:230px; cursor:zoom-in; position:relative; animation:popIn .5s ease both; }
+  .g-item img{ width:100%; height:100%; object-fit:cover; transition:.5s; }
+  .g-item:hover img{ transform:scale(1.12); }
+  .g-item::after{
+    content:"🔍 View"; position:absolute; inset:0; display:grid; place-items:center;
+    background:rgba(14,42,71,.55); color:#fff; font-weight:700; opacity:0; transition:.35s;
+  }
+  .g-item:hover::after{ opacity:1; }
+  @keyframes popIn{ from{opacity:0; transform:scale(.9);} to{opacity:1; transform:scale(1);} }
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:2000; display:none;
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-width:92%; max-height:86vh; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.6); }
+  .lightbox .close{ position:absolute; top:24px; right:32px; font-size:2.4rem; color:#fff; cursor:pointer; }
+  .lightbox .nav{ position:absolute; top:50%; transform:translateY(-50%); font-size:2.6rem; color:#fff; cursor:pointer; padding:14px; user-select:none; }
+  .lightbox .prev{ left:14px; } .lightbox .next{ right:14px; }
+
+  /* ============ CONTACT ============ */
+  .contact-wrap{ display:grid; grid-template-columns:1fr 1.2fr; gap:50px; max-width:1150px; margin:0 auto; }
+  .contact-info h3{ color:var(--primary); margin-bottom:18px; font-size:1.4rem; }
+  .info-item{ display:flex; gap:16px; margin-bottom:24px; align-items:flex-start; }
+  .info-item .ic{ background:var(--accent); width:46px; height:46px; border-radius:12px; display:grid; place-items:center; font-size:1.2rem; flex-shrink:0; }
+  .info-item h4{ color:var(--primary); font-size:.95rem; }
+  .info-item p{ color:var(--grey); font-size:.9rem; }
+  form{ background:var(--light); padding:36px; border-radius:var(--radius); box-shadow:var(--shadow); }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  input, select, textarea{
+    width:100%; padding:14px 16px; border:1.5px solid #dbe3ec; border-radius:10px;
+    font-size:.95rem; margin-bottom:16px; outline:none; transition:.25s; background:#fff; font-family:inherit;
+  }
+  input:focus, select:focus, textarea:focus{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(245,166,35,.18); }
+  textarea{ resize:vertical; min-height:120px; }
+  form button{ width:100%; border:none; cursor:pointer; font-size:1rem; }
+  .form-msg{ text-align:center; margin-top:14px; font-weight:700; color:green; display:none; }
+
+  /* ============ FOOTER ============ */
+  footer{ background:var(--dark); color:#c5cfdc; padding:60px 6% 24px; }
+  .footer-grid{ display:grid; grid-template-columns:2fr 1fr 1fr 1.4fr; gap:40px; max-width:1250px; margin:0 auto 44px; }
+  footer h4{ color:#fff; margin-bottom:18px; }
+  footer ul{ list-style:none; }
+  footer ul li{ margin-bottom:10px; font-size:.92rem; }
+  footer ul a:hover{ color:var(--accent); }
+  .footer-bottom{ text-align:center; border-top:1px solid #2c3a4d; padding-top:22px; font-size:.85rem; }
+  .socials{ display:flex; gap:12px; margin-top:16px; }
+  .socials a{ width:40px; height:40px; border-radius:50%; background:#253244; display:grid; place-items:center; transition:.3s; }
+  .socials a:hover{ background:var(--accent); transform:translateY(-4px); }
+
+  /* ============ FLOATING BUTTONS ============ */
+  .whatsapp{
+    position:fixed; bottom:26px; right:26px; width:58px; height:58px; background:#25d366;
+    border-radius:50%; display:grid; place-items:center; box-shadow:0 8px 22px rgba(0,0,0,.3);
+    z-index:900; animation:pulse 2s infinite; transition:.3s;
+  }
+  .whatsapp:hover{ transform:scale(1.12); }
+  @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5);} 70%{box-shadow:0 0 0 18px rgba(37,211,102,0);} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);} }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px){           /* iPad landscape / small laptops */
+    section{ padding:70px 5%; }
+    .about-wrap, .contact-wrap{ grid-template-columns:1fr; gap:50px; }
+    .about-imgs{ max-width:600px; margin:0 auto; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    .stat h2{ font-size:2rem; }
+  }
+  @media (max-width: 820px){            /* iPad portrait */
+    .hamburger{ display:flex; }
+    nav{
+      position:fixed; top:0; right:-100%; height:100vh; width:min(78vw, 340px);
+      background:var(--primary); transition:right .4s ease; padding:100px 30px 30px;
+      box-shadow:-8px 0 30px rgba(0,0,0,.3);
+    }
+    nav.open{ right:0; }
+    nav ul{ flex-direction:column; align-items:flex-start; gap:6px; }
+    .nav-links a{ color:#fff; font-size:1.05rem; display:block; width:100%; }
+    .nav-cta{ margin-top:16px; }
+    .hamburger.active span:nth-child(1){ transform:rotate(45deg) translate(6px, 6px); background:var(--accent); }
+    .hamburger.active span:nth-child(2){ opacity:0; }
+    .hamburger.active span:nth-child(3){ transform:rotate(-45deg) translate(6px, -6px); background:var(--accent); }
+    .hero{ padding-top:110px; }
+    .stats{ gap:34px; }
+    .process-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+  @media (max-width: 560px){            /* Phones */
+    section{ padding:60px 5%; }
+    .hero{ min-height:auto; padding:120px 6% 70px; }
+    .hero-badges div{ font-size:.75rem; padding:8px 14px; }
+    .btn-primary, .btn-outline{ padding:13px 26px; font-size:.9rem; width:100%; text-align:center; }
+    .btn-group{ flex-direction:column; }
+    .stats{ flex-direction:column; gap:24px; padding:34px 6%; }
+    .form-row{ grid-template-columns:1fr; }
+    .process-grid{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr; gap:32px; }
+    .about-imgs .float-img{ bottom:-20px; right:0; }
+    form{ padding:26px 20px; }
+    .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
+    .g-item{ height:160px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <img src="./IMG/logo.png" alt="logo" width="80px" height="80px">
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav id="nav">
+    <ul class="nav-links">
+      <li><a href="./home.html" >Home</a></li>
+      <li><a href="#about" class="active">About</a></li>
+      
+      <li><a href="./gallery.html">Gallery</a></li>
+      
+      <li class="nav-cta"><a href="./contact.html" class="cta-btn">Get a Quote</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="section-tag" style="background:rgba(245,166,35,.2); color:#f5a623;">Premium Finishing Experts</span>
+    <h1>We Transform Spaces With <span class="hl">World-Class</span> Floor & Wall Finishing</h1>
+    <p>NEXTGEN VENTURE LTD delivers flawless epoxy floors, artistic POP ceilings, marble trowel & Gravitex wall finishes, screeding, painting, increte stamp floors and end-to-end project management — built to last, finished to impress.</p>
+    <div class="btn-group">
+      
+      <a href="./contact.html" class="btn-outline">Request Free Quote</a>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="about-wrap">
+    <div class="about-imgs">
+      <img class="main-img" src="./IMG/picture 1.jpeg" alt="NEXTGEN VENTURE team on site">
+      <img class="float-img" src="https://kimi-web-img.kimi.ai/img/media.designcafe.com/2baae80c7e6ed0ee9fd7c83f79e7f8b4a9a2bebe.jpg" alt="Finished interior project">
+    </div>
+    <div class="about-content">
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title">Building Beauty From The Ground Up</h2>
+      <p>NEXTGEN VENTURE LTD is a full-service finishing and project management company. From residential homes to corporate complexes, we bring precision, creativity and professionalism to every square metre we touch.</p>
+      <p>Our team of certified artisans and project managers combine modern techniques with premium materials to deliver finishes that stand the test of time.</p>
+      <ul class="about-list">
+        <li>Certified &amp; insured professional workforce</li>
+        <li>Premium imported &amp; local materials</li>
+        <li>On-time, on-budget project delivery</li>
+        <li>After-service maintenance support</li>
+      </ul>
+      <a href="./contact.html" class="btn-primary">Work With Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="center">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">Our Core Services</h2>
+    <p class="section-sub">Eight specialized finishing solutions, delivered by experts who treat every project like a masterpiece.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-num">01</span>
+      <div class="img-box"><img src="https://kimi-web-img.kimi.ai/img/media.designcafe.com/85cf99b43eb458af3e190d517e2c9d1abb130d30.jpg" alt="Epoxy floor design"></div>
+      <div class="service-body"><h3>Epoxy Floor Design</h3><p>Seamless, glossy and ultra-durable epoxy flooring for homes, showrooms, warehouses and industrial spaces — resistant to stains, chemicals and heavy traffic.</p></div>
+    </div>
+    <div class="service-card"><span class="service-num">02</span>
+      <div class="img-box"><img src="https://kimi-web-img.kimi.ai/img/www.designfirst.co.in/0ab796d66a245bf0fbc6631dad585f70ab5b8f2a.jpg" alt="POP ceiling design"></div>
+      <div class="service-body"><h3>POP Design</h3><p>Artistic plaster-of-Paris ceilings, cornices, pillars and TV walls — from classic motifs to modern minimalist cove lighting designs.</p></div>
+    </div>
+    <div class="service-card"><span class="service-num">03</span>
+      <div class="img-box"><img src="https://kimi-web-img.kimi.ai/img/sc04.alicdn.com/87c2f870c66f1e68d9065613ade26f12bb099d39.jpg" alt="Marble trowel paint"></div>
+      <div class="service-body"><h3>Marble Trowel Paint (Sandtext)</h3><p>Luxurious trowel-applied sandtext finishes that mimic natural marble texture — giving exterior and interior walls a rich, stone-like elegance.</p></div>
+    </div>
+    <div class="service-card"><span class="service-num">04</span>
+      <div class="img-box"><img src="https://kimi-web-img.kimi.ai/img/sc04.alicdn.com/43344b73641fcfd797299a6c5ab8ccc7a9b55b72.jpg" alt="Gravitex paint"></div>
+      <div class="service-body"><h3>Gravitex Paint</h3><p>Weather-shield Gravitex coatings for long-lasting exterior protection — textured, crack-bridging and available in a wide range of colours.</p></div>
+    </div>
+    <div class="service-card"><span class="service-num">05</span>
+      <div class="img-box"><img src="https://kimi-web-img.kimi.ai/img/st.hzcdn.com/df210a820acbf439f0c71202e6c970194e2f4e4d.jpg" alt="Floor screeding"></div>
+      <div class="service-body"><h3>Screeding</h3><p>Precision floor and wall screeding for a perfectly level, smooth and ready-to-finish surface — the foundation of every great floor.</p></div>
+    </div>
+    <div class="service-card"><span class="service-num">06</span>
+      <div class="img-box"><img src="https://kimi-web-img.kimi.ai/img/www.designfirst.co.in/0ab796d66a245bf0fbc6631dad585f70ab5b8f2a.jpg" alt="Painting"></div>
+      <div class="service-body"><h3>Painting</h3><p>Interior and exterior professional painting with premium emulsion, satin and gloss finishes — crisp lines, even coats, stunning results.</p></div>
+    </div>
+    <div class="service-card"><span class="service-num">07</span>
+      <div class="img-box"><img src="https://kimi-web-img.kimi.ai/img/www.aparnarmc.com/965b79eba580afd5f644dcc653f56ec75a33c058.png" alt="Increte stamp floor"></div>
+      <div class="service-body"><h3>Increte Stamp Floor</h3><p>Decorative stamped concrete driveways, walkways and patios — patterned and coloured to replicate stone, brick or slate at a fraction of the cost.</p></div>
+    </div>
+    <div class="service-card"><span class="service-num">08</span>
+      <div class="img-box"><img src="./IMG/picture 2.jpeg" alt="Project management"></div>
+      <div class="service-body"><h3>Project Management</h3><p>End-to-end supervision of your finishing works — scheduling, budgeting, quality control and handover, so you enjoy a stress-free build.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="projects" id="projects">
+  <div class="center">
+    <span class="section-tag" style="background:rgba(245,166,35,.18); color:#f5a623;">Featured Work</span>
+    <h2 class="section-title">Projects We're Proud Of</h2>
+    <p class="section-sub">A snapshot of spaces we've transformed across residential, commercial and industrial sectors.</p>
+  </div>
+  <div class="proj-grid">
+    <div class="proj-card"><img src="https://kimi-web-img.kimi.ai/img/media.designcafe.com/85cf99b43eb458af3e190d517e2c9d1abb130d30.jpg" alt="">
+      <div class="proj-overlay"><small>Epoxy Flooring</small><h3></h3></div></div>
+    <div class="proj-card"><img src="https://kimi-web-img.kimi.ai/img/www.designfirst.co.in/0ab796d66a245bf0fbc6631dad585f70ab5b8f2a.jpg" alt="">
+      <div class="proj-overlay"><small>POP Ceiling</small><h3></h3></div></div>
+    <div class="proj-card"><img src="https://kimi-web-img.kimi.ai/img/sc04.alicdn.com/87c2f870c66f1e68d9065613ade26f12bb099d39.jpg" alt="">
+      <div class="proj-overlay"><small>Marble Trowel</small><h3></h3></div></div>
+    <div class="proj-card"><img src="https://kimi-web-img.kimi.ai/img/www.aparnarmc.com/965b79eba580afd5f644dcc653f56ec75a33c058.png" alt="">
+      <div class="proj-overlay"><small>Increte Stamp</small><h3></h3></div></div>
+    <div class="proj-card"><img src="https://kimi-web-img.kimi.ai/img/st.hzcdn.com/df210a820acbf439f0c71202e6c970194e2f4e4d.jpg" alt="">
+      <div class="proj-overlay"><small>Screeding & Epoxy</small><h3></h3></div></div>
+    <div class="proj-card"><img src="https://kimi-web-img.kimi.ai/img/www.asenseinterior.com/b360a65a79672d4e4b24d1c5a933c105fe293f63.webp" alt="">
+      <div class="proj-overlay"><small>POP & Painting</small><h3></h3></div></div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="center">
+    <span class="section-tag">Our Portfolio</span>
+    <h2 class="section-title">Project Gallery</h2>
+    <p class="section-sub">Filter through our recent works. Click any image to view it in full size.</p>
+  </div>
+  <div class="filter-btns">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="epoxy">Epoxy Floors</button>
+    <button data-filter="pop">POP Design</button>
+    <button data-filter="paint">Paints & Textures</button>
+    <button data-filter="stamp">Stamp Floors</button>
+  </div>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="g-item" data-cat="epoxy"><img src="https://kimi-web-img.kimi.ai/img/media.designcafe.com/85cf99b43eb458af3e190d517e2c9d1abb130d30.jpg" alt="Epoxy floor"></div>
+    <div class="g-item" data-cat="pop"><img src="https://kimi-web-img.kimi.ai/img/www.designfirst.co.in/0ab796d66a245bf0fbc6631dad585f70ab5b8f2a.jpg" alt="POP ceiling"></div>
+    <div class="g-item" data-cat="paint"><img src="https://kimi-web-img.kimi.ai/img/sc04.alicdn.com/87c2f870c66f1e68d9065613ade26f12bb099d39.jpg" alt="Marble trowel"></div>
+    <div class="g-item" data-cat="stamp"><img src="https://kimi-web-img.kimi.ai/img/www.aparnarmc.com/965b79eba580afd5f644dcc653f56ec75a33c058.png" alt="Stamp floor"></div>
+    <div class="g-item" data-cat="epoxy"><img src="https://kimi-web-img.kimi.ai/img/media.designcafe.com/2baae80c7e6ed0ee9fd7c83f79e7f8b4a9a2bebe.jpg" alt="Epoxy interior"></div>
+    <div class="g-item" data-cat="pop"><img src="https://kimi-web-img.kimi.ai/img/www.asenseinterior.com/b360a65a79672d4e4b24d1c5a933c105fe293f63.webp" alt="POP bedroom"></div>
+    <div class="g-item" data-cat="paint"><img src="https://kimi-web-img.kimi.ai/img/sc04.alicdn.com/43344b73641fcfd797299a6c5ab8ccc7a9b55b72.jpg" alt="Gravitex texture"></div>
+    <div class="g-item" data-cat="stamp"><img src="https://kimi-web-img.kimi.ai/img/st.hzcdn.com/df210a820acbf439f0c71202e6c970194e2f4e4d.jpg" alt="Screeded floor"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close" id="lbClose">&times;</span>
+  <span class="nav prev" id="lbPrev">‹</span>
+  <img id="lbImg" src="" alt="Preview">
+  <span class="nav next" id="lbNext">›</span>
+</div>
+
+<!-- ================= CONTACT ================= -->
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div class="footer-bottom">© 2026 NEXTGEN VENTURE LTD. All Rights Reserved. </div>
+</footer>
+
+<!-- WhatsApp -->
+<a class="whatsapp" href="https://wa.me/8035446461" target="_blank" aria-label="Chat on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.2-.7l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9.9-1.1 2.2-.2 3.8a11.6 11.6 0 0 0 4.6 4.3c1.7.8 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.1-.6-.3z"/></svg>
+</a>
+
+<script>
+/* ===== Mobile Menu ===== */
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('open');
+  hamburger.classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  hamburger.classList.remove('active');
+}));
+
+/* ===== Header scroll effect ===== */
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60));
+
+/* ===== Active nav link on scroll ===== */
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = 'home';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+});
+
+/* ===== Animated counters ===== */
+const counters = document.querySelectorAll('.counter');
+const runCounter = el => {
+  const target = +el.dataset.target;
+  let count = 0;
+  const step = Math.max(1, Math.ceil(target / 120));
+  const tick = () => {
+    count += step;
+    if (count >= target) { el.textContent = target + '+'; return; }
+    el.textContent = count;
+    requestAnimationFrame(tick);
+  };
+  tick();
+};
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { runCounter(e.target); counterObserver.unobserve(e.target); }
+  });
+}, { threshold: .6 });
+counters.forEach(c => counterObserver.observe(c));
+
+/* ===== Gallery filter ===== */
+const filterBtns = document.querySelectorAll('.filter-btns button');
+const gItems = document.querySelectorAll('.g-item');
+filterBtns.forEach(btn => btn.addEventListener('click', () => {
+  filterBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.dataset.filter;
+  gItems.forEach(item => {
+    const show = f === 'all' || item.dataset.cat === f;
+    item.style.display = show ? 'block' : 'none';
+    if (show) { item.style.animation = 'none'; void item.offsetWidth; item.style.animation = ''; }
+  });
+}));
+
+/* ===== Lightbox ===== */
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+let lbIndex = 0;
+const visibleItems = () => [...gItems].filter(i => i.style.display !== 'none');
+const openLB = i => {
+  const items = visibleItems();
+  lbIndex = i;
+  lbImg.src = items[lbIndex].querySelector('img').src;
+  lightbox.classList.add('open');
+};
+gItems.forEach(item => item.addEventListener('click', () =>
+  openLB(visibleItems().indexOf(item))));
+document.getElementById('lbClose').onclick = () => lightbox.classList.remove('open');
+document.getElementById('lbPrev').onclick = () => {
+  const items = visibleItems();
+  lbIndex = (lbIndex - 1 + items.length) % items.length;
+  lbImg.src = items[lbIndex].querySelector('img').src;
+};
+document.getElementById('lbNext').onclick = () => {
+  const items = visibleItems();
+  lbIndex = (lbIndex + 1) % items.length;
+  lbImg.src = items[lbIndex].querySelector('img').src;
+};
+lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+});
+
+/* ===== Contact form ===== */
+document.getElementById('quoteForm').addEventListener('submit', e => {
+  e.preventDefault();
+  document.getElementById('formMsg').style.display = 'block';
+  e.target.reset();
+  setTimeout(() => document.getElementById('formMsg').style.display = 'none', 5000);
+});
+
+/* ===== Reveal animations ===== */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = 1;
+      e.target.style.transform = 'translateY(0)';
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: .12 });
+document.querySelectorAll('.service-card, .proj-card, .process-step, .about-content, .about-imgs, .contact-info, form').forEach(el => {
+  el.style.opacity = 0;
+  el.style.transform = 'translateY(35px)';
+  el.style.transition = 'opacity .7s ease, transform .7s ease';
+  revealObserver.observe(el);
+});
+</script>
+</body>
+</html>
